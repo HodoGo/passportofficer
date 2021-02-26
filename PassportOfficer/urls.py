@@ -25,6 +25,7 @@ import HouseApp.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', HouseApp.views.home, name='home'),
+    path('report/',include('reportapp.urls')),
     url(r'^contact$', HouseApp.views.contact, name='contact'),
     url(r'^about$', HouseApp.views.about, name='about'),
     url(r'^login/$',

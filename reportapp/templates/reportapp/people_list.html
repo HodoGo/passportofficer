@@ -1,0 +1,15 @@
+{% extends "HouseApp/layout.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'reportapp:people_list' %}">Список жильцов</a></h2>
+<p><a href="{% url 'reportapp:export_word' %}">выгрузить</a></p>
+<ul>
+    {% for people in object_list %}
+    <li>{{ people.flat}} - {{ people.lastname}}  {{ people.firstname }} {{ people.fathername}}
+    </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
