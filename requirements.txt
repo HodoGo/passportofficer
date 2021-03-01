@@ -1,4 +1,0 @@
-django
-django-bootstrap4
-docxtpl
-xlsxtpl
