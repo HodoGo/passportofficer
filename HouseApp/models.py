@@ -11,6 +11,10 @@ class House(models.Model):
     def __str__(self):
         return self.address
 
+    class Meta:
+        verbose_name = 'дом'
+        verbose_name_plural = 'дома'
+
 class Flat(models.Model):
     house = models.ForeignKey('House',on_delete=models.SET_NULL,null=True)
     numberFlat = models.CharField(max_length=10,help_text="Укажите номер квартиры")
@@ -21,8 +25,13 @@ class Flat(models.Model):
     def __str__(self):
         return 'Кв. %s' % (self.numberFlat)
 
+    class Meta:
+        verbose_name = 'квартиру'
+        verbose_name_plural = 'Квартиры'
+
+
 class People(models.Model):
-    flat = models.ForeignKey('Flat',on_delete=models.SET_NULL,null=True)
+    flat = models.ForeignKey('Flat',on_delete=models.SET_NULL,null=True,verbose_name='Квартира')
     lastname = models.CharField(verbose_name = 'Фамилия',max_length = 200)
     firstname = models.CharField(verbose_name = 'Имя',max_length = 200)
     fathername = models.CharField(verbose_name = 'Отчество',max_length = 200)
@@ -49,6 +58,10 @@ class People(models.Model):
 
     def __str__(self):
         return '%s %s %s %s (кв. %s)' % (self.lastname,self.firstname,self.fathername,self.birthday ,self.flat.numberFlat)
+
+    class Meta:
+        verbose_name = 'жильца'
+        verbose_name_plural = 'Жильцы'
 
 
 
