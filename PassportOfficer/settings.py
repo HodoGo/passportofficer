@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'HouseApp',
     'reportapp',
     'bootstrap4',
+    'import_export',
 ]
 
 MIDDLEWARE = [
