@@ -54,7 +54,7 @@ class PeopleAdmin(ImportExportModelAdmin):
 
     resource_class = PeopleResource
     list_display = ('flat','lastname','firstname','fathername','birthday','docSeries','docNumber','owner','ownerPart')
-    list_display_links = ('lastname',)
+    list_display_links = ('lastname','flat')
     list_filter = ('owner','flat')
     ordering = ('flat','lastname','firstname')
     actions = [export_to_xlsx, export_to_docx]
@@ -65,7 +65,8 @@ class PeopleAdmin(ImportExportModelAdmin):
             'fields': (
                 'flat',
                 'owner',
-                'ownerPart'  
+                'ownerPart', 
+                ('Reg_Begin','Reg_End')
             ) 
         }),
         ('ФИО', {

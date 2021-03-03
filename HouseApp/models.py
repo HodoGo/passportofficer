@@ -43,9 +43,12 @@ class People(models.Model):
         ('1','целая'),
         ('1/2','одна втрорая'),
         ('1/3','одна третья'),
-        ('1/4','одна четвертая')
+        ('1/4','одна четвертая'),
+        ('1/9','одна девятая')
     )
     ownerPart = models.CharField(verbose_name = 'Часть собственности',default = '-',choices = PART_OWNER,max_length = 200)
+    Reg_Begin = models.DateField(null = True,verbose_name='Дата прописки')
+    Reg_End = models.DateField(null = True,verbose_name='Дата выписки')
 
     def __str__(self):
         return '%s %s %s %s (кв. %s)' % (self.lastname,self.firstname,self.fathername,self.birthday ,self.flat.numberFlat)
