@@ -28,13 +28,13 @@ class People(models.Model):
     fathername = models.CharField(verbose_name = 'Отчество',max_length = 200)
     birthday = models.DateField(verbose_name = 'Дата рождения',null = False)
     TYPE_DOCUMENTS = (
-        ('п','Паспорт'),
-        ('св','Свидетельство о рождении'),
+        ('Паспорт гражданина РФ','Паспорт'),
+        ('Свидетельство о рождении','Свидетельство о рождении'),
         ('ин','Паспорт иностранного гражданина')
     )
-    docType = models.CharField(verbose_name='Тип документа', max_length=3,choices = TYPE_DOCUMENTS,blank=True,default='п', help_text='Укажите тип документа')
-    docSeries = models.CharField(verbose_name='Серия документа',max_length = 5)
-    docNumber = models.CharField(verbose_name='Номер документа',max_length = 8)
+    docType = models.CharField(verbose_name='Тип документа', max_length=200,choices = TYPE_DOCUMENTS,blank=True,default='п', help_text='Укажите тип документа')
+    docSeries = models.CharField(verbose_name='Серия документа',max_length = 200)
+    docNumber = models.CharField(verbose_name='Номер документа',max_length = 100)
     docIssueDate = models.DateField(null = True,verbose_name='Дата выдачи')
     docIssueOrg = models.TextField(verbose_name='Кто выдал')
     owner = models.BooleanField(verbose_name = 'Собственник')
